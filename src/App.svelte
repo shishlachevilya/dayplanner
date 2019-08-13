@@ -14,6 +14,14 @@
   let priority = "";
 
   function handleMessage(event) {
+    if(event.detail.content === "") {
+      alert("Введите название задачи");
+      return;
+    }
+    if(event.detail.select === 0) {
+       alert("Выберите приоритет");
+       return;
+    }
     todo = [...todo, {
       id: Date.now(),
       content: event.detail.content,
