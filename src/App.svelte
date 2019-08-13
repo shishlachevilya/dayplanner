@@ -2,6 +2,7 @@
   import Form from "./components/Form.svelte";
   import ListElement from "./components/ListElement.svelte";
   import ProgressBar from "./components/ProgressBar.svelte";
+  import TodoDate from "./components/Date.svelte";
 
   let todo = [
     { id: "fw4e1ql20titpsqlccbbx", content: "Задача 1", priority: "high" },
@@ -49,6 +50,7 @@
 
 <div class="container">
   <div class="todo-box">
+    <TodoDate></TodoDate>
     <h2>Мои задачи</h2>
 
     <Form content={content} on:message={handleMessage}></Form>
