@@ -22,11 +22,8 @@
   }
 </script>
 
-<style>
-  :root {
-    --todo-box-bg: #f7f1fb;
-    --btn-bg: #b6b6ef;
-  }
+<style type="text/scss">
+  $todo-box-bg: #f7f1fb;
 
   h2 {
     margin: 0 0 30px;
@@ -36,7 +33,7 @@
   .todo-box {
     margin: 25px 0 0;
     padding: 20px 50px 30px;
-    background-color: var(--todo-box-bg);
+    background-color: $todo-box-bg;
     border-radius: 15px;
     box-shadow: 5px 10px 15px rgba(0,0,0, .25);
   }

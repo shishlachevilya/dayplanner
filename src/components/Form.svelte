@@ -5,10 +5,11 @@
   export let todo = [];
 </script>
 
-<style>
+<style type="text/scss">
+  $btn-bg: #b6b6ef;
+
   .form {
     margin: 0 0 30px;
-  }
 
   .form__row:nth-child(1) {
     margin: 0 0 16px;
@@ -50,7 +51,7 @@
     text-transform: uppercase;
     border: none;
     border-radius: 50px;
-    background-color: var(--btn-bg);
+    background-color: $btn-bg;
     cursor: pointer;
     box-shadow: 5px 10px 15px rgba(0,0,0, .25);
     outline: none;
