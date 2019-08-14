@@ -35,7 +35,7 @@
 
     &__col {
       display: inline-flex;
-      width: 30%;
+      width: 30.5%;
     }
 
     &__text {
