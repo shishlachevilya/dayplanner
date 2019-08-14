@@ -141,7 +141,7 @@
 
     {#if visible}
       <div class="menu-wrap" in:fly="{{ x: 10, duration: 400 }}" out:fly="{{ x: 50, duration: 300}}">
-        <Menu visible={visible} />
+        <Menu visible={visible} priority={priority}></Menu>
       </div>
     {/if}
 

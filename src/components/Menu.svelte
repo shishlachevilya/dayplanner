@@ -1,9 +1,13 @@
 <script>
+  export let priority = "";
 
+  function deleteHandler(event) {
 
-  // export let visible;
+  }
 
+  function doneHandler() {
 
+  }
 </script>
 
 <style type="text/scss">
@@ -38,32 +42,47 @@
     }
   }
 
-  .svg-inline--fa {
+  svg {
     width: 16px;
     height: 16px;
     fill: #948ebd;
     transition: all .15s ease;
-
-    &.fa-pen {
-      width: 14px;
-      height: 14px;
-    }
   }
 </style>
 
-
 <ul class="menu-list">
   <li class="menu-list__item">
-    <button data-action="edit">
-      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen" class="svg-inline--fa fa-pen fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-        <path d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"></path>
+    <button on:click={doneHandler}">
+      <svg width="16" height="16" viewBox="0 0 86 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M25.4 60.6C27.3 62.5 29.8 63.5 32.5 63.5C35.2 63.5 37.7 62.4 39.6 60.6L82.7 17.5C86.6 13.6 86.6 7.29998 82.7 3.39998C78.8 -0.500024 72.5 -0.500024 68.6 3.39998L32.4 39.4L17.5 24.5C13.6 20.6 7.29998 20.6 3.39998 24.5C-0.500024 28.4 -0.500024 34.7 3.39998 38.6L25.4 60.6Z" />
       </svg>
     </button>
   </li>
   <li class="menu-list__item">
-    <button data-action="delete">
-      <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-        <path d="M268 416h24a12 12 0 0 0 12-12V188a12 12 0 0 0-12-12h-24a12 12 0 0 0-12 12v216a12 12 0 0 0 12 12zM432 80h-82.41l-34-56.7A48 48 0 0 0 274.41 0H173.59a48 48 0 0 0-41.16 23.3L98.41 80H16A16 16 0 0 0 0 96v16a16 16 0 0 0 16 16h16v336a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128h16a16 16 0 0 0 16-16V96a16 16 0 0 0-16-16zM171.84 50.91A6 6 0 0 1 177 48h94a6 6 0 0 1 5.15 2.91L293.61 80H154.39zM368 464H80V128h288zm-212-48h24a12 12 0 0 0 12-12V188a12 12 0 0 0-12-12h-24a12 12 0 0 0-12 12v216a12 12 0 0 0 12 12z"></path>
+    <button data-action="edit">
+      <svg width="16" height="16" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M61 0L49.4375 11.5625L66.4375 28.5625L78 17L61 0ZM46.5938 14.4062L0 61V78H17L63.5938 31.4062L46.5938 14.4062Z" />
+      </svg>
+    </button>
+  </li>
+  <li class="menu-list__item">
+    <button>
+      <svg class={priority} width="16" height="16" viewBox="0 0 81 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M40.5 80.5C62.5914 80.5 80.5 62.5914 80.5 40.5C80.5 18.4086 62.5914 0.5 40.5 0.5C18.4086 0.5 0.5 18.4086 0.5 40.5C0.5 62.5914 18.4086 80.5 40.5 80.5Z" stroke="#010101" stroke-width="0.25" stroke-miterlimit="10"/>
+      </svg>
+    </button>
+  </li>
+  <li class="menu-list__item">
+    <button>
+       <svg class={priority} width="16" height="16" viewBox="0 0 81 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M40.5 80.5C62.5914 80.5 80.5 62.5914 80.5 40.5C80.5 18.4086 62.5914 0.5 40.5 0.5C18.4086 0.5 0.5 18.4086 0.5 40.5C0.5 62.5914 18.4086 80.5 40.5 80.5Z" stroke="#010101" stroke-width="0.25" stroke-miterlimit="10"/>
+        </svg>
+    </button>
+  </li>
+  <li class="menu-list__item">
+    <button on:click={deleteHandler}>
+      <svg width="16" height="16" viewBox="0 0 82 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M52.5 9.1H78.4C80 9.1 81.3 10.4 81.3 12V17.9C81.3 19.5 80 20.8 78.4 20.8H3.59995C1.99995 20.8 0.699951 19.5 0.699951 17.9V12.1C0.699951 10.5 1.99995 9.2 3.59995 9.2H29.5V3.4C29.5 1.8 30.8 0.5 32.4 0.5H49.5999C51.1999 0.5 52.5 1.8 52.5 3.4V9.1ZM8.09995 26.4H73.8999C74.7999 26.4 75.3999 27.2 75.4999 28L68 87.9C67.3999 92.3 63.7999 95.5 59.4 95.5H22.7999C18.4 95.5 14.7 92.2 14.2 87.9L6.69995 28C6.49995 27.2 7.19995 26.4 8.09995 26.4ZM27.2 82.8H27.4C28.9 82.7 29.9 81.4 29.7999 80L26.5999 41.5C26.5 40 25.2 39 23.7999 39.1C22.2999 39.2 21.3 40.5 21.4 41.9L24.5999 80.4C24.7 81.8 25.9 82.8 27.2 82.8ZM41 82.8C42.4 82.8 43.5999 81.6 43.5999 80.2V41.7C43.5999 40.3 42.4 39.1 41 39.1C39.6 39.1 38.4 40.3 38.4 41.7V80.2C38.4 81.6 39.6 82.8 41 82.8ZM54.7 82.8C56.1 82.8 57.2 81.8 57.3 80.4L60.5 41.9C60.6 40.5 59.4999 39.2 58.1 39.1C56.7 39 55.4 40.1 55.3 41.5L52.0999 80C52 81.4 53.1 82.7 54.5 82.8H54.7Z" />
       </svg>
     </button>
   </li>
