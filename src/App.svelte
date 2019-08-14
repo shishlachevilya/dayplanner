@@ -3,6 +3,9 @@
   import ListElement from "./components/ListElement.svelte";
   import ProgressBar from "./components/ProgressBar.svelte";
   import TodoDate from "./components/Date.svelte";
+  import { Notyf } from 'notyf';
+
+  const notyf = new Notyf();
 
   let todo = [
     { id: "fw4e1ql20titpsqlccbbx", content: "Задача 1", priority: "high" },
@@ -15,18 +18,22 @@
 
   function handleMessage(event) {
     if(event.detail.content === "") {
-      alert("Введите название задачи");
+      notyf.error("Введите название задачи");
       return;
     }
+
     if(event.detail.select === 0) {
-       alert("Выберите приоритет");
+      notyf.error("Выберите приоритет");
        return;
     }
+
     todo = [...todo, {
       id: Date.now(),
       content: event.detail.content,
       priority: event.detail.select
     }];
+
+    notyf.success("Новая задача добавлена");
   }
 
 </script>
