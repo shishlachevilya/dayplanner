@@ -15,10 +15,6 @@
   function showMenuHandler() {
     visible = !visible;
   }
-
-  // function editHandler(event) {
-  //   event.target.closest('button').previousElementSibling.setAttribute("contenteditable", true);
-  // }
 </script>
 
 <style type="text/scss">
@@ -141,7 +137,7 @@
 
     {#if visible}
       <div class="menu-wrap" in:fly="{{ x: 10, duration: 400 }}" out:fly="{{ x: 50, duration: 300}}">
-        <Menu visible={visible} priority={priority}></Menu>
+        <Menu priority={priority}></Menu>
       </div>
     {/if}
 

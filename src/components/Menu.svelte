@@ -2,7 +2,6 @@
   import Circle from "./Circle.svelte";
 
   export let priority = "";
-  export let visible = "";
 
 
   function deleteHandler(event) {

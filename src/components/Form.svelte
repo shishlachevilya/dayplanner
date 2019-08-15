@@ -6,8 +6,8 @@
   export let content = "";
   export let select = 0;
 
-  function sayHello() {
-    dispatch('message', {
+  function addNewTodo() {
+    dispatch('todo', {
       content: content,
       select: select
     });
@@ -125,6 +125,6 @@
   </div>
 
   <div class="form__row">
-    <button class="form__button" type="submit" on:click|preventDefault={sayHello}>добавить новую</button>
+    <button class="form__button" type="submit" on:click|preventDefault={addNewTodo}>добавить новую</button>
   </div>
 </form>

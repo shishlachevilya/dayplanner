@@ -7,7 +7,7 @@
 
   const notyf = new Notyf();
 
-  let todo = [
+  let todoList = [
     { id: "fw4e1ql20titpsqlccbbx", content: "Задача 1", priority: "high" },
     { id: "lkxvbm81y1iau1ry9i7ik", content: "Задача 2", priority: "medium" },
     { id: "lkxvbm81y1iau1ry9i", content: "Задача 3", priority: "low" }
@@ -24,10 +24,10 @@
 
     if(event.detail.select === 0) {
       notyf.error("Выберите приоритет");
-       return;
+      return;
     }
 
-    todo = [...todo, {
+    todoList = [...todoList, {
       id: Date.now(),
       content: event.detail.content,
       priority: event.detail.select
@@ -68,10 +68,10 @@
     <TodoDate></TodoDate>
     <h2>Мои задачи</h2>
 
-    <Form content={content} on:message={handleMessage}></Form>
+    <Form content={content} on:todo={handleMessage}></Form>
 
     <ul class="todo-list">
-      {#each todo as {id, content, priority}}
+      {#each todoList as {id, content, priority}}
         <ListElement id={id} content={content} priority={priority}></ListElement>
       {/each}
     </ul>
