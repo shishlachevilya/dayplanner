@@ -6,7 +6,7 @@
   .menu-list__item {
     margin: 0 2px;
   }
-  
+
   button {
     display: flex;
     justify-content: center;
