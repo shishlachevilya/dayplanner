@@ -6,11 +6,6 @@
   export let content = "";
   export let priority = "";
   let visible = false;
-  let add = false;
-
-  function deleteHandler(event) {
-    event.target.closest("li").remove();
-  }
 
   function showMenuHandler() {
     visible = !visible;
