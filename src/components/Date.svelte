@@ -21,20 +21,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-
-  .icon {
-
+    margin: 0 0 10px;
   }
 
   .date {
     display: inline-block;
-    padding: 10px 16px;
+    padding: 6px 12px;
     color: #3d3c70;
     font-size: 12px;
     font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    background: #e7e2f4;
+    font-weight: 400;
+    border: 2px solid #e7e2f4;
     border-radius: 25px;
   }
 </style>

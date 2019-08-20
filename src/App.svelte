@@ -8,9 +8,9 @@
   const notyf = new Notyf();
 
   let todoList = [
-    { id: "fw4e1ql20titpsqlccbbx", content: "Задача 1", priority: "high" },
-    { id: "lkxvbm81y1iau1ry9i7ik", content: "Задача 2", priority: "medium" },
-    { id: "lkxvbm81y1iau1ry9i", content: "Задача 3", priority: "low" }
+    { id: "fw4e1ql20titpsqlccbbx", content: "Прочитать 100 страниц", priority: "high" },
+    { id: "lkxvbm81y1iau1ry9i7ik", content: "Выгулять собаку", priority: "medium" },
+    { id: "lkxvbm81y1iau1ry9i", content: "Лечь спать в 11", priority: "low" }
   ];
 
   let content = "";
