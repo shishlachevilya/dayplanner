@@ -5,10 +5,15 @@
   export let id = "";
   export let content = "";
   export let priority = "";
-  let visible = false;
+  export let isOpen = false;
+  export let isDone = false;
 
   function showMenuHandler() {
-    visible = !visible;
+    isOpen = !isOpen;
+  }
+
+  function testHandler(event) {
+    isDone = event.detail.isDone;
   }
 </script>
 
@@ -17,18 +22,32 @@
     margin: -1px 0 0;
     border-top: 1px solid #e6dff7;
     border-bottom: 1px solid #e6dff7;
+
+    &.low {
+      order: 3;
+    }
+
+    &.medium {
+      order: 2;
+    }
+
+    &.high {
+      order: 1;
+    }
+
+    &.done {
+      animation: move .5s;
+      order: 4;
+    }
   }
 
-  li.low {
-    order: 3;
-  }
-
-  li.medium {
-    order: 2;
-  }
-
-  li.high {
-    order: 1;
+  @keyframes move {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   .item {
@@ -61,6 +80,15 @@
 
     &.low::before {
       background: #28a745;
+    }
+
+    &.done {
+      opacity: .5;
+      pointer-events: none;
+
+      &::before {
+        background: #ccc;
+      }
     }
   }
 
@@ -126,19 +154,19 @@
   }
 </style>
 
-<li data-id={id} class={priority} transition:slide="{{duration: 400}}">
-  <div class="item {priority}" transition:fly="{{ x: -20, duration: 300, delay: 300 }}">
+<li data-id={id} class="{priority} {isDone ? 'done' : ''}" transition:slide="{{duration: 400}}">
+  <div class="item {priority} {isDone ? 'done' : ''}" transition:fly="{{ x: -20, duration: 300, delay: 300 }}">
     <p>{content}</p>
 
-    {#if visible}
+    {#if isOpen}
       <div class="menu-wrap" in:fly="{{ x: 10, duration: 400 }}" out:fly="{{ x: 50, duration: 300}}">
-        <Menu priority={priority}></Menu>
+        <Menu priority={priority} on:menu={showMenuHandler} on:test={testHandler}></Menu>
       </div>
     {/if}
 
 
-    <button data-action="menu" class:active={visible} on:click={showMenuHandler}>
-      {#if visible}
+    <button data-action="menu" class:active={isOpen} on:click={showMenuHandler}>
+      {#if isOpen}
         <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M7.41421 6.00001L11.6568 10.2427C12.0474 10.6332 12.0474 11.2663 11.6568 11.6569C11.2663 12.0474 10.6332 12.0474 10.2426 11.6569L5.99999 7.41422L1.75735 11.6569C1.36683 12.0474 0.733665 12.0474 0.34314 11.6569C-0.0473839 11.2663 -0.0473839 10.6332 0.34314 10.2427L4.58578 6.00001L0.34314 1.75737C-0.0473839 1.36684 -0.0473839 0.73368 0.34314 0.343156C0.733665 -0.0473686 1.36683 -0.0473686 1.75735 0.343156L5.99999 4.5858L10.2426 0.343156C10.6332 -0.0473686 11.2663 -0.0473686 11.6568 0.343156C12.0474 0.73368 12.0474 1.36684 11.6568 1.75737L7.41421 6.00001Z" />
         </svg>

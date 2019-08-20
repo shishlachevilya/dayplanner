@@ -1,15 +1,25 @@
 <script>
   import Circle from "./Circle.svelte";
+  import { createEventDispatcher } from 'svelte';
+
+  const dispatch = createEventDispatcher();
 
   export let priority = "";
-
 
   function deleteHandler(event) {
 
   }
 
   function doneHandler() {
+    dispatch('menu', {
+      isOpen: false
+    });
+  }
 
+  function showText() {
+    dispatch('test', {
+      isDone: true
+    });
   }
 </script>
 
@@ -67,7 +77,7 @@
 
 <ul class="menu-list">
   <li class="menu-list__item">
-    <button on:click={doneHandler}>
+    <button on:click={doneHandler} on:click={showText}>
       <svg width="16" height="16" viewBox="0 0 86 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M25.4 60.6C27.3 62.5 29.8 63.5 32.5 63.5C35.2 63.5 37.7 62.4 39.6 60.6L82.7 17.5C86.6 13.6 86.6 7.29998 82.7 3.39998C78.8 -0.500024 72.5 -0.500024 68.6 3.39998L32.4 39.4L17.5 24.5C13.6 20.6 7.29998 20.6 3.39998 24.5C-0.500024 28.4 -0.500024 34.7 3.39998 38.6L25.4 60.6Z" />
       </svg>

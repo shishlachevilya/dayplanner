@@ -72,7 +72,7 @@
 
     <ul class="todo-list">
       {#each todoList as {id, content, priority}}
-        <ListElement id={id} content={content} priority={priority}></ListElement>
+        <ListElement {id} {content} {priority}></ListElement>
       {/each}
     </ul>
 
