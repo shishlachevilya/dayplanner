@@ -21,6 +21,14 @@
       isDone: true
     });
   }
+
+  function handleClick(event) {
+    const currentClass = event.target.closest("button").className.replace(/\s.*/,'');
+
+    dispatch('change', {
+      priority: currentClass
+    });
+  }
 </script>
 
 <style type="text/scss">
@@ -91,14 +99,14 @@
     </button>
   </li>
   {#if priority === "high"}
-    <Circle currentPriority="medium"></Circle>
-    <Circle currentPriority="low"></Circle>
+    <Circle currentPriority="medium" on:click={handleClick}></Circle>
+    <Circle currentPriority="low" on:click={handleClick}></Circle>
   {:else if priority === "medium"}
-    <Circle currentPriority="high"></Circle>
-    <Circle currentPriority="low"></Circle>
+    <Circle currentPriority="high" on:click={handleClick}></Circle>
+    <Circle currentPriority="low" on:click={handleClick}></Circle>
   {:else}
-    <Circle currentPriority="high"></Circle>
-    <Circle currentPriority="medium"></Circle>
+    <Circle currentPriority="high" on:click={handleClick}></Circle>
+    <Circle currentPriority="medium" on:click={handleClick}></Circle>
   {/if}
   <li class="menu-list__item">
     <button on:click={deleteHandler}>

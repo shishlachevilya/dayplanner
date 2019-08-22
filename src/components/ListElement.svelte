@@ -15,10 +15,15 @@
   function testHandler(event) {
     isDone = event.detail.isDone;
   }
+
+  function changeHandler(event) {
+    priority = event.detail.priority;
+    showMenuHandler();
+  }
 </script>
 
 <style type="text/scss">
-  li {
+  .todo-list__item {
     margin: -1px 0 0;
     border-top: 1px solid #e6dff7;
     border-bottom: 1px solid #e6dff7;
@@ -36,20 +41,10 @@
     }
 
     &.done {
-      animation: move .5s;
       order: 4;
     }
   }
-
-  @keyframes move {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
+  
   .item {
     position: relative;
     padding: 10px 54px 10px 26px;
@@ -154,13 +149,13 @@
   }
 </style>
 
-<li data-id={id} class="{priority} {isDone ? 'done' : ''}" transition:slide="{{duration: 400}}">
+<li data-id={id} class="todo-list__item {priority} {isDone ? 'done' : ''}" transition:slide="{{duration: 400}}">
   <div class="item {priority} {isDone ? 'done' : ''}" transition:fly="{{ x: -20, duration: 300, delay: 300 }}">
     <p>{content}</p>
 
     {#if isOpen}
       <div class="menu-wrap" in:fly="{{ x: 10, duration: 400 }}" out:fly="{{ x: 50, duration: 300}}">
-        <Menu priority={priority} on:menu={showMenuHandler} on:test={testHandler}></Menu>
+        <Menu priority={priority} on:menu={showMenuHandler} on:test={testHandler} on:change={changeHandler}></Menu>
       </div>
     {/if}
 
