@@ -44,7 +44,7 @@
       order: 4;
     }
   }
-  
+
   .item {
     position: relative;
     padding: 10px 54px 10px 26px;
