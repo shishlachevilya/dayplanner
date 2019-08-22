@@ -3,26 +3,29 @@
   import ListElement from "./components/ListElement.svelte";
   import ProgressBar from "./components/ProgressBar.svelte";
   import TodoDate from "./components/Date.svelte";
-  import { Notyf } from 'notyf';
+  import {Notyf} from 'notyf';
 
   const notyf = new Notyf();
 
   let todoList = [
-    { id: "fw4e1ql20titpsqlccbbx", content: "Прочитать 100 страниц", priority: "high" },
-    { id: "lkxvbm81y1iau1ry9i7ik", content: "Выгулять собаку", priority: "medium" },
-    { id: "lkxvbm81y1iau1ry9i", content: "Лечь спать в 11", priority: "low" }
+    {id: "fw4e1ql20titpsqlccbbx", content: "Прочитать 100 страниц", priority: "high"},
+    {id: "lkxvbm81y1iau1ry9i7ik", content: "Выгулять собаку", priority: "medium"},
+    {id: "lkxvbm81y1iau1ry9i", content: "Лечь спать в 11", priority: "low"},
   ];
 
   let content = "";
   let priority = "";
+  // let doneTasks = 0;
+  // let startLength = Object.keys(todoList).length;
+  // $: totalLength = doneTasks / startLength * 100;
 
   function handleMessage(event) {
-    if(event.detail.content === "") {
+    if (event.detail.content === "") {
       notyf.error("Введите название задачи");
       return;
     }
 
-    if(event.detail.select === 0) {
+    if (event.detail.select === 0) {
       notyf.error("Выберите приоритет");
       return;
     }
@@ -51,7 +54,7 @@
     padding: 20px 26px 30px;
     background-color: $todo-box-bg;
     border-radius: 15px;
-    box-shadow: 5px 10px 15px rgba(0,0,0, .25);
+    box-shadow: 5px 10px 15px rgba(0, 0, 0, .25);
   }
 
   .todo-list {
@@ -72,10 +75,10 @@
 
     <ul class="todo-list">
       {#each todoList as {id, content, priority}}
-        <ListElement {id} {content} {priority}></ListElement>
+        <ListElement {id} {content} {priority} ></ListElement>
       {/each}
     </ul>
 
-    <ProgressBar />
+<!--    <ProgressBar/>-->
   </div>
 </div>

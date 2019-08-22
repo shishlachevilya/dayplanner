@@ -22,6 +22,12 @@
     });
   }
 
+  function editHandler() {
+    dispatch('edit', {
+      isDone: false
+    });
+  }
+
   function handleClick(event) {
     const currentClass = event.target.closest("button").className.replace(/\s.*/,'');
 
@@ -35,7 +41,7 @@
   .menu-list {
     display: flex;
     align-items: center;
-    padding: 0 32px 0 1px;
+    padding: 0 38px 0 2px;
     margin: 0;
     height: 100%;
     list-style: none;
@@ -49,8 +55,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 26px;
-    height: 26px;
+    width: 28px;
+    height: 28px;
     padding: 0;
     background: none;
     border: none;
@@ -92,7 +98,7 @@
     </button>
   </li>
   <li class="menu-list__item">
-    <button data-action="edit">
+    <button data-action="edit" on:click={editHandler}>
       <svg width="16" height="16" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M61 0L49.4375 11.5625L66.4375 28.5625L78 17L61 0ZM46.5938 14.4062L0 61V78H17L63.5938 31.4062L46.5938 14.4062Z" />
       </svg>

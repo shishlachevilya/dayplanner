@@ -1,4 +1,5 @@
 <script>
+  export let totalLength;
 
 </script>
 
@@ -13,7 +14,6 @@
   }
 
   .progress-bar {
-     width: 50%;
      height: 100%;
      border-radius: 25px;
      background: #b6b6ef;
@@ -21,5 +21,5 @@
 </style>
 
 <div class="progress">
-  <div class="progress-bar"></div>
+  <div class="progress-bar" style="width: {totalLength}%"></div>
 </div>

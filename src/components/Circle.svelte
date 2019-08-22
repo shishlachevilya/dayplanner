@@ -11,8 +11,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 26px;
-    height: 26px;
+    width: 28px;
+    height: 28px;
     padding: 0;
     background: none;
     border: none;
