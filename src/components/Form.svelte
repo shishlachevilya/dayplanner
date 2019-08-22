@@ -47,9 +47,13 @@
       font-family: "Roboto", sans-serif;
       font-weight: 700;
       border-radius: 25px;
-      border: none;
+      border: 2px solid transparent;
       background-color: #e7e2f4;
       outline: none;
+
+      &:focus {
+        border-color: #9f9fea;
+      }
     }
 
     &__button {
