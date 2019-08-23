@@ -76,16 +76,36 @@
       transform: translateY(-50%);
     }
 
-    &.high::before {
-      background: #dc3545;
+    &.high {
+      &::before {
+        background: #dc3545;
+      }
+
+      &.edit {
+        background-color: rgba(220,53,69, .15);
+      }
     }
 
-    &.medium::before {
-      background: #ffc107;
+
+    &.medium {
+      &::before {
+        background: #ffc107;
+      }
+
+      &.edit {
+        background-color: rgba(255,193,8, .15);
+      }
     }
 
-    &.low::before {
-      background: #28a745;
+
+    &.low {
+      &::before {
+        background: #28a745;
+      }
+
+      &.edit {
+        background-color: rgba(41,167,69, .15);
+      }
     }
 
     &.done {
@@ -159,10 +179,6 @@
   svg {
     fill: #3d3c70;
   }
-  
-  .edit {
-    background-color: #e7e2f4;
-  }
 
   .edit-btn {
     position: absolute;
@@ -183,8 +199,8 @@
 
     {#if isEdit}
       <button class="edit-btn" on:click={endEdit}>
-        <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M7.41421 6.00001L11.6568 10.2427C12.0474 10.6332 12.0474 11.2663 11.6568 11.6569C11.2663 12.0474 10.6332 12.0474 10.2426 11.6569L5.99999 7.41422L1.75735 11.6569C1.36683 12.0474 0.733665 12.0474 0.34314 11.6569C-0.0473839 11.2663 -0.0473839 10.6332 0.34314 10.2427L4.58578 6.00001L0.34314 1.75737C-0.0473839 1.36684 -0.0473839 0.73368 0.34314 0.343156C0.733665 -0.0473686 1.36683 -0.0473686 1.75735 0.343156L5.99999 4.5858L10.2426 0.343156C10.6332 -0.0473686 11.2663 -0.0473686 11.6568 0.343156C12.0474 0.73368 12.0474 1.36684 11.6568 1.75737L7.41421 6.00001Z" />
+        <svg width="14" height="14" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3.3 8.7C3.5 8.9 3.7 9 4 9C4.3 9 4.5 8.9 4.7 8.7L11.7 1.7C12.1 1.3 12.1 0.7 11.7 0.3C11.3 -0.1 10.7 -0.1 10.3 0.3L4 6.6L1.7 4.3C1.3 3.9 0.7 3.9 0.3 4.3C-0.1 4.7 -0.1 5.3 0.3 5.7L3.3 8.7Z" />
         </svg>
       </button>
     {/if}
@@ -197,7 +213,7 @@
 
     <button data-action="menu" class:active={isOpen} on:click={showMenuHandler}>
       {#if isOpen}
-        <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M7.41421 6.00001L11.6568 10.2427C12.0474 10.6332 12.0474 11.2663 11.6568 11.6569C11.2663 12.0474 10.6332 12.0474 10.2426 11.6569L5.99999 7.41422L1.75735 11.6569C1.36683 12.0474 0.733665 12.0474 0.34314 11.6569C-0.0473839 11.2663 -0.0473839 10.6332 0.34314 10.2427L4.58578 6.00001L0.34314 1.75737C-0.0473839 1.36684 -0.0473839 0.73368 0.34314 0.343156C0.733665 -0.0473686 1.36683 -0.0473686 1.75735 0.343156L5.99999 4.5858L10.2426 0.343156C10.6332 -0.0473686 11.2663 -0.0473686 11.6568 0.343156C12.0474 0.73368 12.0474 1.36684 11.6568 1.75737L7.41421 6.00001Z" />
         </svg>
       {:else}
