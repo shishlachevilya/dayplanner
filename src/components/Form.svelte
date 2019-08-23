@@ -11,8 +11,11 @@
       content: content,
       select: select
     });
-    content = "";
-    select = 0;
+
+    if(content !== "" && select !== 0) {
+      content = "";
+      select = 0;
+    }
   }
 
 </script>

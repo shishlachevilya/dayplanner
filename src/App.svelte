@@ -3,15 +3,19 @@
   import ListElement from "./components/ListElement.svelte";
   import ProgressBar from "./components/ProgressBar.svelte";
   import TodoDate from "./components/Date.svelte";
+  import {getLocalTasks} from "./helpers/getLocalTasks";
+  import {setLocalTasks} from "./helpers/setLocalTasks";
   import {Notyf} from 'notyf';
 
   const notyf = new Notyf();
 
-  let todoList = [
+  let INITIAL_TODO = [
     {id: "fw4e1ql20titpsqlccbbx", content: "Прочитать 100 страниц", priority: "high"},
     {id: "lkxvbm81y1iau1ry9i7ik", content: "Выгулять собаку", priority: "medium"},
     {id: "lkxvbm81y1iau1ry9i", content: "Лечь спать в 11", priority: "low"},
   ];
+
+  let todoList = getLocalTasks() || INITIAL_TODO;
 
   let content = "";
   let priority = "";
@@ -35,6 +39,7 @@
       content: event.detail.content,
       priority: event.detail.select
     }];
+    setLocalTasks(todoList);
 
     notyf.success("Новая задача добавлена");
   }
@@ -75,7 +80,7 @@
 
     <ul class="todo-list">
       {#each todoList as {id, content, priority}}
-        <ListElement {id} {content} {priority} ></ListElement>
+        <ListElement {id} {content} {priority}></ListElement>
       {/each}
     </ul>
 
