@@ -1,27 +1,20 @@
 <script>
+  import INITIAL_TODO from './db';
   import Form from "./components/Form.svelte";
   import ListElement from "./components/ListElement.svelte";
   import ProgressBar from "./components/ProgressBar.svelte";
   import TodoDate from "./components/Date.svelte";
   import {getLocalTasks} from "./helpers/getLocalTasks";
   import {setLocalTasks} from "./helpers/setLocalTasks";
+
   import {Notyf} from 'notyf';
 
   const notyf = new Notyf();
-
-  let INITIAL_TODO = [
-    {id: "fw4e1ql20titpsqlccbbx", content: "Прочитать 100 страниц", priority: "high"},
-    {id: "lkxvbm81y1iau1ry9i7ik", content: "Выгулять собаку", priority: "medium"},
-    {id: "lkxvbm81y1iau1ry9i", content: "Лечь спать в 11", priority: "low"},
-  ];
 
   let todoList = getLocalTasks() || INITIAL_TODO;
 
   let content = "";
   let priority = "";
-  // let doneTasks = 0;
-  // let startLength = Object.keys(todoList).length;
-  // $: totalLength = doneTasks / startLength * 100;
 
   function handleMessage(event) {
     if (event.detail.content === "") {
